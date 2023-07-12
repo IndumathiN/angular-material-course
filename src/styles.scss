@@ -3,3 +3,12 @@
 
 @import "@angular/material/prebuilt-themes/indigo-pink.css";
 
+//responsive designs
+@import "./mixins";
+
+@include responsive-dialogs();
+
+.highlight-date{
+    background: red;
+}
+

@@ -1,5 +1,60 @@
 <div [formGroup]="form" class="course-details-form">
+    <mat-form-field floatLabel="always">
+        <input matInput placeholder="Course Title" formControlName="title" #title>
+        <mat-hint align="end">
+            {{title.value.length}} /60
+        </mat-hint>
+    
+        <mat-error *ngIf="courseTitle.errors?.minLength">
+            Minimum 5 characters are required.
+        </mat-error>
+    </mat-form-field>
 
+    <mat-radio-group class="course-type" formControlName="courseType">
+        <mat-radio-button value="free">Free</mat-radio-button>
+        <mat-radio-button value="premium">Premium</mat-radio-button>
+    </mat-radio-group>
+
+    <mat-form-field appearance="fill">
+        <mat-select formControlName="category" placeholder="Select Category">
+            <mat-option>None</mat-option>
+            
+            <mat-optgroup label="beginners">
+                <mat-option value="newprogramming">New to Programming</mat-option>
+                <mat-option value="newjavascript">New to Js</mat-option>
+                <mat-option value="newangular">New to Angular</mat-option>
+            </mat-optgroup>
+            
+            <mat-option value="Intermediate">Intermediate</mat-option>
+            <mat-option value="Advanced">Advanced</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Release Date" formControlName="releasedAt" [matDatepicker]="releasePicker">
+        <mat-datepicker-toggle matSuffix [for]="releasePicker">
+
+        </mat-datepicker-toggle>
+        <mat-datepicker #releasePicker [dateClass]="dateClass">
+
+        </mat-datepicker>
+    </mat-form-field>
+
+    <mat-checkbox color="primary" [indeterminate]="true" formControlName="downloadsAllowed">
+        Download Allowed?
+    </mat-checkbox>
+
+    <mat-form-field appearance="outline">
+        <textarea matInput formControlName="longDescription" placeholder="Description"
+        cdkTextareaAutosize [cdkAutosizeMinRows]="2" [cdkAutosizeMaxRows]="5"></textarea>
+    </mat-form-field>
+    <!-- <mat-form-field appearance="fill">
+        <input matInput placeholder="Course Title" formControlName="title">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <input matInput placeholder="Course Title" formControlName="title">
+    </mat-form-field> -->
 
 </div>
 

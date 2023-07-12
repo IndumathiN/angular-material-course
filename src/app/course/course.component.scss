@@ -44,6 +44,14 @@
   }
 }
 
+.collapsed-detail{
+  display: none;
+}
+.scrooling-container{
+  // max-height: 250px;
+  // max-width: 200px;
+  overflow: auto;
+}
 mat-paginator {
   width: 400px;
   padding-bottom: 10px;
